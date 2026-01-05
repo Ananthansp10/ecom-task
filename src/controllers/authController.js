@@ -15,7 +15,7 @@ export const registerUser = async (req,res) => {
        if(isUserExist){
             return res.status(STATUS_CODE.CONFLICT).json({success:false,message:ERROR_MESSAGE.EMAIL_EXIST})
        }else{
-            userModel.create({
+            await userModel.create({
                 name:name,
                 email:email,
                 phoneNumber:phoneNumber,
